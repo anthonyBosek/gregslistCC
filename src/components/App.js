@@ -1,14 +1,18 @@
-import React from "react";
+import { useState } from "react";
 import Header from "./Header";
 import ListingsContainer from "./ListingsContainer";
 
-function App() {
+const App = () => {
+  const [searchTxt, setSearchTxt] = useState("");
+
+  const handleSearchTxtChange = (txt) => setSearchTxt(txt);
+
   return (
     <div className="app">
-      <Header />
-      <ListingsContainer />
+      <Header handleSearchTxtChange={handleSearchTxtChange} />
+      <ListingsContainer searchTxt={searchTxt} />
     </div>
   );
-}
+};
 
 export default App;
